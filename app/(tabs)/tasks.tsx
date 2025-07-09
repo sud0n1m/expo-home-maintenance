@@ -3,7 +3,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as Haptics from 'expo-haptics';
 import React, { useState } from 'react';
-import { FlatList, ScrollView, StyleSheet } from 'react-native';
+import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View, Platform, Modal } from 'react-native';
 import { Appbar, Card, Chip, Dialog, Divider, IconButton, Button as PaperButton, TextInput as PaperTextInput, Portal, Surface, Text, TouchableRipple, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -125,17 +125,25 @@ export default function TasksScreen() {
     setEditingTask(task);
     setForm({
       name: task.name,
-      description: task.description,
-      notes: task.notes,
+      description: task.description || '',
+      notes: task.notes || '',
       frequency: task.frequency,
       next_due: task.next_due,
-      category: task.category,
-      priority: task.priority,
+      category: task.category || 'general',
+      priority: task.priority || 'medium',
     });
     setModalVisible(true);
   };
 
   const handleSave = () => {
+    if (!form.name.trim()) {
+      alert('Task name is required');
+      return;
+    }
+    if (!form.next_due) {
+      alert('Due date is required');
+      return;
+    }
     if (!frequencyOptions.includes(form.frequency)) {
       alert('Frequency must be one of: ' + frequencyOptions.join(', '));
       return;
@@ -329,25 +337,57 @@ export default function TasksScreen() {
                   ))}
                 </Surface>
                 <Text style={[styles.label, styles.modalField]}>Due Date *</Text>
-                <TouchableRipple onPress={() => setShowDatePicker(true)} style={[{ borderRadius: 8 }, styles.modalField]}>
-                  <PaperTextInput
-                    style={[styles.input]}
-                    placeholder="mm/dd/yyyy"
-                    value={form.next_due ? new Date(form.next_due).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : ''}
-                    mode="outlined"
-                    editable={false}
-                    right={<PaperTextInput.Icon icon="calendar" />}
-                    pointerEvents="none"
-                  />
-                </TouchableRipple>
-                {showDatePicker && (
+                <TouchableOpacity 
+                  onPress={() => setShowDatePicker(true)} 
+                  style={[styles.modalField]}
+                  activeOpacity={0.7}
+                >
+                  <View style={styles.dateInputContainer}>
+                    <Text style={[styles.dateInputText, !form.next_due && styles.dateInputPlaceholder]}>
+                      {form.next_due ? new Date(form.next_due).toLocaleDateString(undefined, { month: 'short', day: 'numeric', year: 'numeric' }) : 'mm/dd/yyyy'}
+                    </Text>
+                    <MaterialCommunityIcons name="calendar" size={24} color="#666" />
+                  </View>
+                </TouchableOpacity>
+                {Platform.OS === 'ios' && (
+                  <Modal
+                    visible={showDatePicker}
+                    transparent={true}
+                    animationType="slide"
+                    onRequestClose={() => setShowDatePicker(false)}
+                  >
+                    <View style={styles.modalBackground}>
+                      <View style={styles.datePickerContainer}>
+                        <DateTimePicker
+                          value={form.next_due ? new Date(form.next_due) : new Date()}
+                          mode="date"
+                          display="default"
+                          minimumDate={new Date()}
+                          onChange={(event, date) => {
+                            setShowDatePicker(false);
+                            if (event.type === 'set' && date) {
+                              setForm(f => ({ ...f, next_due: date.toISOString().slice(0, 10) }));
+                            }
+                          }}
+                        />
+                        <View style={styles.datePickerButtons}>
+                          <TouchableOpacity onPress={() => setShowDatePicker(false)} style={styles.datePickerButton}>
+                            <Text style={styles.datePickerButtonText}>Cancel</Text>
+                          </TouchableOpacity>
+                        </View>
+                      </View>
+                    </View>
+                  </Modal>
+                )}
+                {Platform.OS === 'android' && showDatePicker && (
                   <DateTimePicker
                     value={form.next_due ? new Date(form.next_due) : new Date()}
                     mode="date"
                     display="default"
+                    minimumDate={new Date()}
                     onChange={(event, date) => {
                       setShowDatePicker(false);
-                      if (date) {
+                      if (event.type === 'set' && date) {
                         setForm(f => ({ ...f, next_due: date.toISOString().slice(0, 10) }));
                       }
                     }}
@@ -507,5 +547,58 @@ const styles = StyleSheet.create({
   },
   dialog: {
     maxHeight: '90%',
+  },
+  dateInputContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    borderWidth: 1,
+    borderColor: '#6750A4',
+    borderRadius: 4,
+    paddingHorizontal: 16,
+    paddingVertical: 14,
+    backgroundColor: '#fff',
+    marginBottom: 12,
+    minHeight: 56,
+    elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 1 },
+    shadowOpacity: 0.1,
+    shadowRadius: 2,
+  },
+  dateInputText: {
+    fontSize: 16,
+    color: '#333',
+    flex: 1,
+  },
+  dateInputPlaceholder: {
+    color: '#999',
+  },
+  modalBackground: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+  },
+  datePickerContainer: {
+    backgroundColor: 'white',
+    borderTopLeftRadius: 20,
+    borderTopRightRadius: 20,
+    paddingTop: 20,
+    paddingBottom: 40,
+  },
+  datePickerButtons: {
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    paddingHorizontal: 20,
+    paddingTop: 20,
+  },
+  datePickerButton: {
+    paddingHorizontal: 20,
+    paddingVertical: 10,
+  },
+  datePickerButtonText: {
+    fontSize: 16,
+    color: '#007AFF',
+    fontWeight: '600',
   },
 }); 
