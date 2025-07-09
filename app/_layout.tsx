@@ -17,14 +17,29 @@ export default function RootLayout() {
 
   useEffect(() => {
     if (Platform.OS !== 'web') {
+      const cdpApiKey = process.env.EXPO_PUBLIC_CIO_CDP_API_KEY;
+      const siteId = process.env.EXPO_PUBLIC_CIO_SITE_ID;
+      console.log('Customer.io env:', { cdpApiKey, siteId });
       import('customerio-reactnative').then(({ CustomerIO, CioRegion }) => {
         CustomerIO.initialize({
-          cdpApiKey: process.env.EXPO_PUBLIC_CIO_CDP_API_KEY || '',
+          cdpApiKey: cdpApiKey || '',
           region: CioRegion.US, // Change to CioRegion.EU if needed
           inApp: {
-            siteId: process.env.EXPO_PUBLIC_CIO_SITE_ID || '',
+            siteId: siteId || '',
           },
         });
+        console.log('CustomerIO initialized');
+        CustomerIO.identify({
+          userId: '1',
+          traits: {
+            first_name: 'Colin',
+            last_name: 'N',
+            email: 'colin@firecorn.org',
+          },
+        });
+        console.log('CustomerIO identify called');
+        CustomerIO.track('test_event', { test: true });
+        console.log('CustomerIO track event sent');
       });
     }
   }, []);

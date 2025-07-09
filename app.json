@@ -36,7 +36,20 @@
           "backgroundColor": "#ffffff"
         }
       ],
-      "customerio-expo-plugin"
+      [
+        "customerio-expo-plugin",
+        {
+          "ios": {
+            "pushNotification": {
+              "useRichPush": true,
+              "env": {
+                "cdpApiKey": "${EXPO_PUBLIC_CIO_CDP_API_KEY}",
+                "region": "us"
+              }
+            }
+          }
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true

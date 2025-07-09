@@ -3,7 +3,7 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import * as Haptics from 'expo-haptics';
 import React, { useState } from 'react';
-import { FlatList, ScrollView, StyleSheet, TouchableOpacity, View, Platform, Modal } from 'react-native';
+import { FlatList, Platform, ScrollView, StyleSheet, TouchableOpacity, View } from 'react-native';
 import { Appbar, Card, Chip, Dialog, Divider, IconButton, Button as PaperButton, TextInput as PaperTextInput, Portal, Surface, Text, TouchableRipple, useTheme } from 'react-native-paper';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
@@ -349,37 +349,7 @@ export default function TasksScreen() {
                     <MaterialCommunityIcons name="calendar" size={24} color="#666" />
                   </View>
                 </TouchableOpacity>
-                {Platform.OS === 'ios' && (
-                  <Modal
-                    visible={showDatePicker}
-                    transparent={true}
-                    animationType="slide"
-                    onRequestClose={() => setShowDatePicker(false)}
-                  >
-                    <View style={styles.modalBackground}>
-                      <View style={styles.datePickerContainer}>
-                        <DateTimePicker
-                          value={form.next_due ? new Date(form.next_due) : new Date()}
-                          mode="date"
-                          display="default"
-                          minimumDate={new Date()}
-                          onChange={(event, date) => {
-                            setShowDatePicker(false);
-                            if (event.type === 'set' && date) {
-                              setForm(f => ({ ...f, next_due: date.toISOString().slice(0, 10) }));
-                            }
-                          }}
-                        />
-                        <View style={styles.datePickerButtons}>
-                          <TouchableOpacity onPress={() => setShowDatePicker(false)} style={styles.datePickerButton}>
-                            <Text style={styles.datePickerButtonText}>Cancel</Text>
-                          </TouchableOpacity>
-                        </View>
-                      </View>
-                    </View>
-                  </Modal>
-                )}
-                {Platform.OS === 'android' && showDatePicker && (
+                {Platform.OS === 'ios' && showDatePicker && (
                   <DateTimePicker
                     value={form.next_due ? new Date(form.next_due) : new Date()}
                     mode="date"
@@ -387,7 +357,7 @@ export default function TasksScreen() {
                     minimumDate={new Date()}
                     onChange={(event, date) => {
                       setShowDatePicker(false);
-                      if (event.type === 'set' && date) {
+                      if (date) {
                         setForm(f => ({ ...f, next_due: date.toISOString().slice(0, 10) }));
                       }
                     }}

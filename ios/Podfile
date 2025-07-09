@@ -42,6 +42,9 @@ target 'homemaintenance' do
     :privacy_file_aggregation_enabled => podfile_properties['apple.privacyManifestAggregationEnabled'] != 'false',
   )
 
+# --- CustomerIO Host App START ---
+  pod 'customerio-reactnative/apn', :path => '../node_modules/customerio-reactnative'
+# --- CustomerIO Host App END ---
   post_install do |installer|
     react_native_post_install(
       installer,
@@ -62,3 +65,9 @@ target 'homemaintenance' do
     end
   end
 end
+# --- CustomerIO Notification START ---
+target 'NotificationService' do
+  
+  pod 'customerio-reactnative-richpush/apn', :path => '../node_modules/customerio-reactnative'
+end
+# --- CustomerIO Notification END ---
