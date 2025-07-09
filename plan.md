@@ -27,7 +27,7 @@ This plan breaks down the project into small, sequential steps for a smooth, low
 3.9. Highlight overdue tasks in UI ✅
 
 ## 4. Notification System (Customer.io Integration)
-4.1. Research Customer.io API and SDK integration
+4.1. Research Customer.io API and SDK integration ✅
 4.2. Implement push notification setup (Expo Notifications)
 4.3. Integrate Customer.io for email and push reminders
 4.4. Add notification preferences UI (timing, channel, frequency)
