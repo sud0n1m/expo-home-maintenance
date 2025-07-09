@@ -1,5 +1,112 @@
 PODS:
+  - "AnalyticsSwiftCIO (1.7.3+cio.1)":
+    - JSONSafeEncoding (= 2.0.0)
+    - Sovran (= 1.1.2)
   - boost (1.84.0)
+  - customerio-reactnative (4.4.3):
+    - customerio-reactnative/nopush (= 4.4.3)
+    - CustomerIO/DataPipelines (= 3.10.8)
+    - CustomerIO/MessagingInApp (= 3.10.8)
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - customerio-reactnative-richpush/apn (4.4.3):
+    - CustomerIO/MessagingPushAPN (= 3.10.8)
+  - customerio-reactnative/apn (4.4.3):
+    - CustomerIO/DataPipelines (= 3.10.8)
+    - CustomerIO/MessagingInApp (= 3.10.8)
+    - CustomerIO/MessagingPushAPN (= 3.10.8)
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - customerio-reactnative/nopush (4.4.3):
+    - CustomerIO/DataPipelines (= 3.10.8)
+    - CustomerIO/MessagingInApp (= 3.10.8)
+    - CustomerIO/MessagingPush (= 3.10.8)
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
+  - CustomerIO/DataPipelines (3.10.8):
+    - CustomerIODataPipelines (= 3.10.8)
+  - CustomerIO/MessagingInApp (3.10.8):
+    - CustomerIOMessagingInApp (= 3.10.8)
+  - CustomerIO/MessagingPush (3.10.8):
+    - CustomerIOMessagingPush (= 3.10.8)
+  - CustomerIO/MessagingPushAPN (3.10.8):
+    - CustomerIOMessagingPushAPN (= 3.10.8)
+  - CustomerIOCommon (3.10.8)
+  - CustomerIODataPipelines (3.10.8):
+    - "AnalyticsSwiftCIO (= 1.7.3+cio.1)"
+    - CustomerIOCommon (= 3.10.8)
+    - CustomerIOTrackingMigration (= 3.10.8)
+  - CustomerIOMessagingInApp (3.10.8):
+    - CustomerIOCommon (= 3.10.8)
+  - CustomerIOMessagingPush (3.10.8):
+    - CustomerIOCommon (= 3.10.8)
+  - CustomerIOMessagingPushAPN (3.10.8):
+    - CustomerIOMessagingPush (= 3.10.8)
+  - CustomerIOTrackingMigration (3.10.8):
+    - CustomerIOCommon (= 3.10.8)
   - DoubleConversion (1.1.6)
   - EXConstants (17.1.7):
     - ExpoModulesCore
@@ -93,6 +200,7 @@ PODS:
   - hermes-engine (0.79.5):
     - hermes-engine/Pre-built (= 0.79.5)
   - hermes-engine/Pre-built (0.79.5)
+  - JSONSafeEncoding (2.0.0)
   - libavif/core (0.11.1)
   - libavif/libdav1d (0.11.1):
     - libavif/core
@@ -1855,6 +1963,30 @@ PODS:
     - React-logger (= 0.79.5)
     - React-perflogger (= 0.79.5)
     - React-utils (= 0.79.5)
+  - RNDateTimePicker (8.4.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.11.18.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-hermes
+    - React-ImageManager
+    - React-jsi
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-renderercss
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - RNGestureHandler (2.24.0):
     - DoubleConversion
     - glog
@@ -2066,10 +2198,14 @@ PODS:
     - libwebp (~> 1.0)
     - SDWebImage/Core (~> 5.17)
   - SocketRocket (0.7.1)
+  - Sovran (1.1.2)
   - Yoga (0.0.0)
 
 DEPENDENCIES:
   - boost (from `../node_modules/react-native/third-party-podspecs/boost.podspec`)
+  - customerio-reactnative (from `../node_modules/customerio-reactnative`)
+  - customerio-reactnative-richpush/apn (from `../node_modules/customerio-reactnative`)
+  - customerio-reactnative/apn (from `../node_modules/customerio-reactnative`)
   - DoubleConversion (from `../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec`)
   - EXConstants (from `../node_modules/expo-constants/ios`)
   - Expo (from `../node_modules/expo`)
@@ -2158,6 +2294,7 @@ DEPENDENCIES:
   - ReactAppDependencyProvider (from `build/generated/ios`)
   - ReactCodegen (from `build/generated/ios`)
   - ReactCommon/turbomodule/core (from `../node_modules/react-native/ReactCommon`)
+  - "RNDateTimePicker (from `../node_modules/@react-native-community/datetimepicker`)"
   - RNGestureHandler (from `../node_modules/react-native-gesture-handler`)
   - RNReanimated (from `../node_modules/react-native-reanimated`)
   - RNScreens (from `../node_modules/react-native-screens`)
@@ -2165,6 +2302,15 @@ DEPENDENCIES:
 
 SPEC REPOS:
   trunk:
+    - AnalyticsSwiftCIO
+    - CustomerIO
+    - CustomerIOCommon
+    - CustomerIODataPipelines
+    - CustomerIOMessagingInApp
+    - CustomerIOMessagingPush
+    - CustomerIOMessagingPushAPN
+    - CustomerIOTrackingMigration
+    - JSONSafeEncoding
     - libavif
     - libdav1d
     - libwebp
@@ -2173,10 +2319,15 @@ SPEC REPOS:
     - SDWebImageSVGCoder
     - SDWebImageWebPCoder
     - SocketRocket
+    - Sovran
 
 EXTERNAL SOURCES:
   boost:
     :podspec: "../node_modules/react-native/third-party-podspecs/boost.podspec"
+  customerio-reactnative:
+    :path: "../node_modules/customerio-reactnative"
+  customerio-reactnative-richpush:
+    :path: "../node_modules/customerio-reactnative"
   DoubleConversion:
     :podspec: "../node_modules/react-native/third-party-podspecs/DoubleConversion.podspec"
   EXConstants:
@@ -2350,6 +2501,8 @@ EXTERNAL SOURCES:
     :path: build/generated/ios
   ReactCommon:
     :path: "../node_modules/react-native/ReactCommon"
+  RNDateTimePicker:
+    :path: "../node_modules/@react-native-community/datetimepicker"
   RNGestureHandler:
     :path: "../node_modules/react-native-gesture-handler"
   RNReanimated:
@@ -2360,7 +2513,17 @@ EXTERNAL SOURCES:
     :path: "../node_modules/react-native/ReactCommon/yoga"
 
 SPEC CHECKSUMS:
+  AnalyticsSwiftCIO: cbded90bbfe53072cb1fa1bc091d249e99ef7c56
   boost: 7e761d76ca2ce687f7cc98e698152abd03a18f90
+  CustomerIO: af8b767174d3ac89a7e31809ec9eef3643e46844
+  customerio-reactnative: 47f1e2d7ab2ceab5e801e882ee9a9ff5c56bd5c4
+  customerio-reactnative-richpush: 36e313098f5d24abe43c530cfa4638c9d61d9623
+  CustomerIOCommon: a5ea6b6e786e6dca3e7352c02d5662a607bff2c0
+  CustomerIODataPipelines: b2add3450169a1f8e0370899391e61518720a5d3
+  CustomerIOMessagingInApp: ec826c12a2ba25d30f12f18b4fa43b23b5283b50
+  CustomerIOMessagingPush: 4421eee66865055c7439f159329eecc8628a70f0
+  CustomerIOMessagingPushAPN: d46517d81a6bf7e73bd6da456f72801686d476ab
+  CustomerIOTrackingMigration: 87124c3d794e961fa4eaadfaa40ddf9ff717f142
   DoubleConversion: cb417026b2400c8f53ae97020b2be961b59470cb
   EXConstants: 98bcf0f22b820f9b28f9fee55ff2daededadd2f8
   Expo: cd501e0be567d779626d89da336c8103bbcb74de
@@ -2383,6 +2546,7 @@ SPEC CHECKSUMS:
   fmt: a40bb5bd0294ea969aaaba240a927bd33d878cdd
   glog: 5683914934d5b6e4240e497e0f4a3b42d1854183
   hermes-engine: f03b0e06d3882d71e67e45b073bb827da1a21aae
+  JSONSafeEncoding: 54722ebc4fe1482e3e60a8450e1287481e32dd8b
   libavif: 84bbb62fb232c3018d6f1bab79beea87e35de7b7
   libdav1d: 23581a4d8ec811ff171ed5e2e05cd27bad64c39f
   libwebp: 02b23773aedb6ff1fd38cec7a77b81414c6842a8
@@ -2450,6 +2614,7 @@ SPEC CHECKSUMS:
   ReactAppDependencyProvider: f3e842e6cb5a825b6918a74a38402ba1409411f8
   ReactCodegen: 6cb6e0d0b52471abc883541c76589d1c367c64c7
   ReactCommon: 1ab5451fc5da87c4cc4c3046e19a8054624ca763
+  RNDateTimePicker: a4ad049fdd568755003c479beac3bdea742ac4d0
   RNGestureHandler: 7d0931a61d7ba0259f32db0ba7d0963c3ed15d2b
   RNReanimated: 2313402fe27fecb7237619e9c6fcee3177f08a65
   RNScreens: 482e9707f9826230810c92e765751af53826d509
@@ -2458,8 +2623,9 @@ SPEC CHECKSUMS:
   SDWebImageSVGCoder: 15a300a97ec1c8ac958f009c02220ac0402e936c
   SDWebImageWebPCoder: e38c0a70396191361d60c092933e22c20d5b1380
   SocketRocket: d4aabe649be1e368d1318fdf28a022d714d65748
+  Sovran: 117d186f9e9cd47a231ee48dace5cd064a4b8ec8
   Yoga: adb397651e1c00672c12e9495babca70777e411e
 
-PODFILE CHECKSUM: 872db8831662b7be0e58b1315ae2ad881bb216dd
+PODFILE CHECKSUM: 666b1e769f752d48072124a5b00d6ae5df5e31b8
 
 COCOAPODS: 1.16.2
